@@ -4,11 +4,11 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
+const verifyToken = require("../middleware/verifyToken");
 
 const router = express.Router();
 
-
-const JWT_SECRET = "your_secret_key";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // User Routes
 router.post("/users", async (req, res) => {
@@ -17,7 +17,7 @@ router.post("/users", async (req, res) => {
         const savedUser = await newUser.save();
         res.status(201).json(savedUser);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({success: false, message: err.message});
     }
 });
 
@@ -26,7 +26,7 @@ router.get("/users", async (req, res) => {
         const users = await User.find();
         res.status(200).json(users);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({success:false, message: err.message});
     }
 });
 
@@ -37,7 +37,7 @@ router.get("/users/byname", async (req, res) => {
         const result = await User.find({ username: username });
         res.status(200).json(result);
     } catch (err) {
-        res.status(400).json({ message: err.message });
+        res.status(400).json({success: false, message: err.message});
     }
 });
 
@@ -49,20 +49,20 @@ router.put("/users/:id", async (req, res) => {
   const isValidOperation = updates.every(update => allowedUpdates.includes(update));
 
   if (!isValidOperation) {
-      return res.status(400).json({ message: "Invalid updates!" });
+      return res.status(400).json({success: false, message: "Invalid updates!"});
   }
 
   try {
       const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
       
       if (!updatedUser) {
-          return res.status(404).json({ message: "User not found" });
+          return res.status(404).json({success: false, message: "User not found"});
       }
       
       res.status(200).json(updatedUser);
   } catch (err) {
-      console.error(err);  // Log error for debugging
-      res.status(500).json({ message: "Internal Server Error." });
+      console.error(err);
+      res.status(500).json({success: false, message: "Internal Server Error."});
   }
 });
 
@@ -71,14 +71,13 @@ router.delete("/users/:id", async (req, res) => {
     try {
         const deletedUser = await User.findByIdAndDelete(req.params.id);
         if (!deletedUser) {
-            return res.status(404).json({ message: "User not found" });
+            return res.status(404).json({success: false, message: "User not found"});
         }
-        res.status(200).json({ message: "User deleted successfully" });
+        res.status(200).json({success: false, message: "User deleted successfully"});
     } catch (err) {
-        res.status(400).json({ message: err.message });
+        res.status(400).json({success: false, message: err.message});
     }
 });
-
 
 // Registration Route
 router.post("/register-user", async (req, res) => {
@@ -87,7 +86,7 @@ router.post("/register-user", async (req, res) => {
     // check if user is already exist
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({message: " Email already in use."})
+      return res.status(400).json({success: false, message: "Email already in use."})
     }
 
     // hash the password
@@ -104,30 +103,28 @@ router.post("/register-user", async (req, res) => {
     });
 
     // save the user to the db
-
     await newUser.save();
 
-    res.status(201).json({message: "User registered successfully." });
+    res.status(201).json({sucess: false, message: "User registered successfully."});
   } catch (err) {
-    res.status(400).json({message: err.message });
+    res.status(400).json({success: false, message: err.message });
   }
 });
 
 // sign-in route
-
 router.post("/signin", async (req, res) => {
   const { email, password } = req.body;
 
   try {
     // check if user exists
-    const user = await User.findOne({ email });
+    const user = await User.findOne({email});
     if (!user) {
-      return res.status(401).json({message: "User not found." });
+      return res.status(401).json({success: false, message: "User not found."});
     }
     // check password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(401).json({message:"Invalid password." });
+      return res.status(401).json({success: false, message:"Invalid password."});
     }
 
     // generate token
@@ -135,38 +132,38 @@ router.post("/signin", async (req, res) => {
 
     res.status(200).json({token});
   } catch (err) {
-    res.status(500).json({message:"Internal server error."});
+    res.status(500).json({success: false, message:"Internal server error."});
   }
 });
 
 // Post Routes
-router.post("/posts", async (req, res) => {
+router.post("/posts", verifyToken, async (req, res) => {
     const newPost = new Post(req.body);
     try {
         const savedPost = await newPost.save();
         res.status(201).json(savedPost);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({success: false, message: err.message});
     }
 });
 
-router.get("/posts", async (req, res) => {
+router.get("/posts", verifyToken, async (req, res) => {
     try {
         const posts = await Post.find().populate("user", "username");
         res.status(200).json(posts);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({success: false, message: err.message});
     }
 });
 
 // Comment Routes
-router.post("/comments", async (req, res) => {
+router.post("/comments", verifyToken, async (req, res) => {
     const newComment = new Comment(req.body);
     try {
         const savedComment = await newComment.save();
         res.status(201).json(savedComment);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({success: false, message: err.message});
     }
 });
 

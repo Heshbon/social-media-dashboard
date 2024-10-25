@@ -46,17 +46,17 @@ The **Social Media Dashboard** backend is built with Node.js and Express, provid
 
 Follow these steps to get your local copy up and running:
 
-1. **Clone the repository**:
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/Heshbon/social-media-dashboard
 
    cd social-media-dashboard/backend
 
-2. **Install dependencies:**:
+2. **Install dependencies:**
   ```bash
   npm install
 
-3. **Setup environment variables**: 
+3. **Setup environment variables:** 
 
 Create a .env file in the backend directory and include necessary configurations such as:
 
@@ -66,7 +66,7 @@ Create a .env file in the backend directory and include necessary configurations
   
   PORT=your_port_number
 
-4. **Run the server**:
+4. **Run the server:**
   ```bash
   npx nodemon
 
@@ -96,13 +96,13 @@ Create a .env file in the backend directory and include necessary configurations
 
 The backend features a secure user authentication process using JSON Web Tokens (JWT):
 
-  1. **User Input**: Users provide their email and password for login.
+  1. **User Input:** Users provide their email and password for login.
   
-  2. **Validation**: The server checks if the credentials are valid.
+  2. **Validation:** The server checks if the credentials are valid.
   
-  3. **Token Generation**: On successful authentication, a JWT is generated and returned.
+  3. **Token Generation:** On successful authentication, a JWT is generated and returned.
   
-  4. **Authorization**: The token must be included in the headers for protected routes.
+  4. **Authorization:** The token must be included in the headers for protected routes.
 
 This approach ensures secure access to the API while allowing users to maintain their sessions seamlessly.
 

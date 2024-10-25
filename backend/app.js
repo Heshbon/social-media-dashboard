@@ -22,5 +22,4 @@ mongoose.connect("mongodb://localhost:27017/media_feed")
         console.error("Database connection error:", err);
     });
 
-// Use the routes
 app.use("/api", routes);

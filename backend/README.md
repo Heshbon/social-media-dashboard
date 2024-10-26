@@ -70,7 +70,8 @@ Create a .env file in the backend directory and include necessary configurations
 To start the server, run:
   npx nodemon
 
-## Usage 🚀
+## **Usage** 🚀
+
 1. Access the API: The API is available at http://127.0.0.1:3000.
 
 2. Register/Login: Use the appropriate endpoints for user authentication.
@@ -84,7 +85,7 @@ To start the server, run:
     + PUT /api/posts/:id: Update a post.
     + DELETE /api/posts/:id: Delete a post.
 
-## Authentication 🔑
+## **Authentication** 🔑
 
 The backend features a secure user authentication process using JSON Web Tokens (JWT):
 
@@ -98,7 +99,7 @@ The backend features a secure user authentication process using JSON Web Tokens 
 
 This approach ensures secure access to the API while allowing users to maintain their sessions seamlessly.
 
-## Contributing 🤝
+## **Contributing** 🤝
 
 I welcome contributions! Please follow these steps to contribute:
 

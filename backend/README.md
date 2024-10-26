@@ -70,13 +70,7 @@ Create a .env file in the backend directory and include necessary configurations
 To start the server, run:
   npx nodemon
 
-## **Usage** 🚀
-
-1. **Access the API:** The API is available at `http://127.0.0.1:3000`.
-
-2. **Register/Login:** Use the appropriate endpoints for user authentication.
-
-## **Usage** 🚀
+## Usage 🚀
 
 1. **Access the API:** The API is available at `http://127.0.0.1:3000`.
 

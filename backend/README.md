@@ -66,7 +66,7 @@ Create a .env file in the backend directory and include necessary configurations
   
   PORT=your_port_number
 
-4. Run the server:
+4. **Run the server:**
   ```bash
   npx nodemon
 
@@ -128,7 +128,7 @@ I welcome contributions! Please follow these steps to contribute:
 
 ## Author ✒️
 
-+ Hesbon Kipchirchir [Heshbon](https://github.com/Heshbon)
+  - Hesbon Kipchirchir [Heshbon](https://github.com/Heshbon)
 
 ## License 🔒
 

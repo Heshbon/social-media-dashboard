@@ -76,6 +76,12 @@ To start the server, run:
 
 2. **Register/Login:** Use the appropriate endpoints for user authentication.
 
+## **Usage** 🚀
+
+1. **Access the API:** The API is available at `http://127.0.0.1:3000`.
+
+2. **Register/Login:** Use the appropriate endpoints for user authentication.
+
 3. **Explore API Endpoints:**
    - `POST /api/auth/register`: Register a new user.
    - `POST /api/auth/login`: Authenticate an existing user.

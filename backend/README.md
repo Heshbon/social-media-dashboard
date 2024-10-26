@@ -70,7 +70,13 @@ Create a .env file in the backend directory and include necessary configurations
 To start the server, run:
   npx nodemon
 
-## Usage 🚀
+## **Usage** 🚀
+
+1. **Access the API:** The API is available at `http://127.0.0.1:3000`.
+
+2. **Register/Login:** Use the appropriate endpoints for user authentication.
+
+## **Usage** 🚀
 
 1. **Access the API:** The API is available at `http://127.0.0.1:3000`.
 
@@ -85,51 +91,47 @@ To start the server, run:
    - `PUT /api/posts/:id`: Update a post.
    - `DELETE /api/posts/:id`: Delete a post.
 
-## **Authentication** 🔑
+## Authentication 🔑
 
 The backend features a secure user authentication process using JSON Web Tokens (JWT):
 
-  1. User Input: Users provide their email and password for login.
+  1. **User Input**: Users provide their email and password for login.
   
-  2. Validation: The server checks if the credentials are valid.
+  2. **Validation**: The server checks if the credentials are valid.
   
-  3. Token Generation: On successful authentication, a JWT is generated and returned.
+  3. **Token Generation**: On successful authentication, a JWT is generated and returned.
   
-  4. Authorization: The token must be included in the headers for protected routes.
+  4. **Authorization**: The token must be included in the headers for protected routes.
 
 This approach ensures secure access to the API while allowing users to maintain their sessions seamlessly.
 
-## **Contributing** 🤝
+## Contributing 🤝
 
 I welcome contributions! Please follow these steps to contribute:
 
-  1. Fork the repository.
-  
-  2. Create a new branch:
-  ```bash
-  git checkout -b feature/YourFeature
+1. Fork the repository.
+
+2. Create a new branch:
+    ```bash
+    git checkout -b feature/YourFeature
 
 3. Make your changes and commit:
-  ```bash
-  git commit -am 'Add some feature'
+    ```bash
+    git commit -am 'Add some feature'
 
 4. Push to the branch:
-  ```bash
-  git push origin feature/YourFeature
+    ```bash
+    git push origin feature/YourFeature
 
 5. Create a new Pull Request.
 
 ## Author ✒️
 
-  - Hesbon Kipchirchir [Heshbon](https://github.com/Heshbon)
++ Hesbon Kipchirchir [Heshbon](https://github.com/Heshbon)
 
 ## License 🔒
 
-+  This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](https://github.com/Heshbon/social-media-dashboard/blob/main/LICENSE) file for details.
-
-## Contact ✉️
-
-For inquiries or suggestions, reach out at [hesskip@gmail.com].
++  This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](https://github.com/Heshbon/nexttalk-chat-app/blob/main/LICENSE) file for details.
 
 ## External Resources 📚
 

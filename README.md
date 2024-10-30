@@ -49,6 +49,8 @@ The backend is built using Node.js and Express, handling API requests and busine
 
 ## Tech Stack 🐩
 
+![Tech Stack](./assets/tech_stack.png)
+
 - **Frontend**: React
 - **Backend**: Node.js, Express
 - **Database**: MongoDB

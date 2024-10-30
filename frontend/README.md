@@ -1,91 +1,70 @@
-# Social Media Dashboard - Frontend
+# Getting Started with Create React App
 
-## Project Overview
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The Social Media Dashboard frontend is a React application that allows users to interact with a social media platform. Users can post updates, follow others, and engage through likes and comments.
+## Available Scripts
 
-## Table of Contents
+In the project directory, you can run:
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+### `npm start`
 
-## Features 🌟
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- User authentication (login and registration)
-- View and edit user profiles
-- Post updates and delete posts
-- Follow/unfollow users
-- Like and comment on posts
-- Responsive design for mobile and desktop
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Tech Stack 🛠️
-- **Frontend**: 
+### `npm test`
 
-  - React: A JavaScript library for building user interfaces.
-  - Axios: Promise-based HTTP client for making API requests.
-  - React Router: For handling routing within the application.
-  - CSS or a CSS framework for styling (e.g., Bootstrap, Material-UI).
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Installation ⚙️
+### `npm run build`
 
-To set up the project locally, follow these steps:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Heshbon/social-media-dashboard.git
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-2. Navigate to the project directory:
-    ```bash
-    cd social-media-dashboard-frontend
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-3. Install dependencies:
-    ```bash
-    npm install
+### `npm run eject`
 
-4. Create a .env file in the root directory and add the necessary environment variables (e.g., API endpoint):
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-REACT_APP_API_URL=http://localhost:3000/api
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Usage 🚀
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-1. Start the development server:
-    ```bash
-    npm start
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-2. Open your browser and navigate to:
-    ```arduino
-    http://localhost:3000
+## Learn More
 
-3. Use the application to register, log in, and interact with the social media dashboard.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Contributing 🤝
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-Contributions are welcome! Please follow these steps to contribute:
+### Code Splitting
 
-1. Fork the repository.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-2. Create a new branch:
-    ```bash
-    git checkout -b feature/YourFeature
+### Analyzing the Bundle Size
 
-3. Make your changes and commit:
-    ```bash
-    git commit -am 'Add some feature'
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-4. Push to the branch:
-    ```bash
-    git push origin feature/YourFeature
+### Making a Progressive Web App
 
-5. Create a new Pull Request.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## License 🔒
+### Advanced Configuration
 
-+  This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](https://github.com/Heshbon/nexttalk-chat-app/blob/main/LICENSE) file for details.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-## Contact ✉️
+### Deployment
 
-For inquiries or suggestions, reach out at [hesskip@gmail.com].
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

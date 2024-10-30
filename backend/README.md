@@ -61,7 +61,7 @@ PORT=your_port_number
     ```bash
     npm start
 
-6. Access the API: The API will be available at http://localhost:your_port_number.
+6. Access the API: The API will be available at http://127.0.0.1:3000
 
 ## Usage 🚀
 

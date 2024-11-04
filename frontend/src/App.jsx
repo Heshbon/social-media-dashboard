@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import dashboard from './assets/images/dashboard.png';
 
@@ -16,7 +16,7 @@ import SettingsPage from './pages/Settings/SettingsPage';
 
 function App() {
   return (
-    <>
+    <Router>
       <div>
         <img src={dashboard} className="logo" alt="Dashboard" />
       </div>
@@ -32,7 +32,7 @@ function App() {
           <Route path="/settings" element={<SettingsPage />} />
         </Route>
       </Routes>
-    </>
+    </Router>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import dashboard from '../assets/images/dashboard.png';
+import { Outlet } from 'react-router-dom';
 
 const AuthLayout = () => {
   return (
@@ -11,7 +12,7 @@ const AuthLayout = () => {
         </header>
         
         <main className='auth-content'>
-
+          <Outlet />
         </main>
         
         <footer className='auth-footer'>

@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL = "http://localhost:5173/api";
 
 const handleError = (error) => {
-  console.error("API Error: ", erro.response || error.message);
+  console.error("API Error: ", error.response || error.message);
   throw error;
 };
 

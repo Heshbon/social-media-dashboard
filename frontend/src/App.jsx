@@ -1,23 +1,22 @@
-import { useState } from 'react'
-import './App.css'
+import { BrowserRouter, Router, Route, Routes } from 'react-router-dom';
+import './App.css';
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
+import Dashboard from "./components/Dashboard/Feed";
+import Profile from "./components/Profile/ProfileCard";
 
-function App() {
-  const [count, setCount] = useState(0)
 
+const App = () => {
   return (
-    <>
-      <h1>Social Media Dashboard</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs"></p>
-    </>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/profile/:id' element={<Profile />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;

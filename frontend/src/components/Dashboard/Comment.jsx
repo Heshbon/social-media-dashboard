@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {getComments, addComment} from "../..services/api";
+import {getComments, addComment} from "../../services/api";
 
-const Comment = () => {
+const Comment = ({postId}) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [loading, setLoading] = useState(false);

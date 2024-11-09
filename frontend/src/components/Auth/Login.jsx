@@ -12,16 +12,17 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(""); // Reset previous errors
+    setError(null); // Clear previous errors
+    if (!email || !password) {
+      setError("Email and password are required");
+      return;
+    }
+    setLoading(true);
     try {
       const user = await loginUser({ email, password });
-      if (user) {
-        navigate("/dashboard");
-      } else {
-        setError("Invalid credentials.");
-      }
+      if (user) navigate("/dashboard");
     } catch (err) {
-      setError("An error occurred. Please try again.");
+      setError("Invalid email or password.");
     } finally {
       setLoading(false);
     }
@@ -29,12 +30,13 @@ const Login = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"  required />
+      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
       {error && <p style={{ color: "red" }}>{error}</p>}
       <button type="submit" disabled={loading}>
         {loading ? "Logging in..." : "Login"}
         </button>
+        {error && <p style={{color: "red"}}>{error}</p>}
     </form>
   );
 };

@@ -25,6 +25,24 @@ export const registerUser = async ({email, password}) => {
   }
 };
 
+export const getComments = async (postId) => {
+  try {
+    const response = await axios.get(`${API_URL}/posts/${postId}/comments`);
+    return response.data;
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+export const addComment = async (postId, commentData) => {
+  try {
+    const response = await axios.post(`${API_URL}/posts/${postId}/comments`, commentData);
+    return response.data;
+  } catch (error) {
+    handleError(error);
+  }
+};
+
 export const getPosts = async () => {
   try {
     const response = await axios.get(`${API_URL}/posts`);

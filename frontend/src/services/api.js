@@ -7,9 +7,16 @@ const handleError = (error) => {
   throw error;
 };
 
+const validateImage = (file) => {
+  const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+  if (file && file.size > maxSize) {
+    throw new Error("Image file size must be less than 5MB");
+  }
+};
+
 export const loginUser = async (credentials) => {
   try {
-    const response = await axios.post(`${API_URL}/auth/login` , credentials);
+    const response = await axios.post(`${API_URL}/auth/login`, credentials);
     return response.data;
   } catch (error) {
     handleError(error);
@@ -54,6 +61,15 @@ export const getPosts = async () => {
 
 export const createPost = async (postData) => {
   try {
+    // Validates if image exists
+    if (postData.image) {
+      validateImage(postData.image); // Checks image size
+    }
+    // Checks if content or image exists
+    if (!postData.content.trim() && !postData.image) {
+      throw new Error("Post content of image is required");
+    }
+    
     const response = await axios.post(`${API_URL}/posts`, postData);
     return response.data;
   } catch (error) {

@@ -69,3 +69,21 @@ export const likePost = async (postId) => {
     handleError(error);
   }
 };
+
+export const followUser = async (currentUserId, targetUserId) => {
+try {
+  const response = await axios.post(`${API_URL}/users/${currentUserId}/follow`, { targetUserId });
+  return response.data;
+} catch (error) {
+  handleError(error);
+}
+};
+
+export const unfollowUser = async (currentUserId, targetUserId) => {
+  try {
+    const response = await axios.post(`${API_URL}/users/${currentUserId}/unfollow`, { targetUserId });
+    return response.data;
+  } catch (error) {
+    handleError(error);
+  }
+};

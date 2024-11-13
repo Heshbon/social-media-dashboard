@@ -14,6 +14,29 @@ const validateImage = (file) => {
   }
 };
 
+export const getUserProfile = async (userId) => {
+  try {
+    const response = await axios.get(`${API_URL}/users/${userId}/profile`);
+    return response.data;
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+export const updateUserProfile = async (userId, formData) => {
+  try {
+    if (formData.get("profilePicture")) {
+      validateImage(formData.get("profilePicture"));
+    }
+    const response = await axios.put(`${API_URL}/users/${userId}/profile`, formData, {
+      headers: {"Content-Type": "multipart/form-data"},
+    });
+    return response.data;
+  } catch (error) {
+    handleError(error);
+  }
+};
+
 export const loginUser = async (credentials) => {
   try {
     const response = await axios.post(`${API_URL}/auth/login`, credentials);

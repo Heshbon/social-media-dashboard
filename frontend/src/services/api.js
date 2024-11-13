@@ -37,6 +37,15 @@ export const updateUserProfile = async (userId, formData) => {
   }
 };
 
+export const getUserPosts = async (userId) => {
+  try {
+    const response = await axios(`${API_URL}/users/${userId}/posts`);
+    return response.data;
+  } catch (error) {
+    handleError(error);
+  }
+};
+
 export const loginUser = async (credentials) => {
   try {
     const response = await axios.post(`${API_URL}/auth/login`, credentials);

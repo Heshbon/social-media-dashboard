@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import usePost from "../../hooks/usePosts";
+import {usePosts} from "../../context/PostContext";
 import Post from "./Post";
 
 const Feed = () => {
-  const {posts, loading, error, fetchPosts} = usePost();
+  const {posts, loading, error, fetchPosts} = usePosts();
 
   useEffect(() => {
     if (!posts.length) {

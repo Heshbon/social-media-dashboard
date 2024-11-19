@@ -9,10 +9,10 @@ const Feed = () => {
     if (!loading && !posts.length) {
       fetchPosts();
     }
-  }, [loading, fetchPosts]);
+  }, [loading, posts.length, fetchPosts]);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p style={{color: "red"}}>{error}</p>;
+  if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
     <div>

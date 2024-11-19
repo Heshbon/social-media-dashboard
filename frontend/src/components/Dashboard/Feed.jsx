@@ -1,27 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { getPosts } from '../../services/api';
+import usePost from "../../hooks/usePosts";
 import Post from "./Post";
 
 const Feed = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const {posts, loading, error, fetchPosts} = usePost();
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        setLoading(true);
-        const response = await getPosts();
-        setPosts(response);
-      } catch (error) {
-        setError("Failed to load posts.");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPosts();
-  }, []);
-
+    if (!posts.length) {
+      fetchPosts();
+    }
+  }, [posts, fetchPosts]);
+    
   if (loading) return <p>Loading...</p>;
   if (error) return <p style={{color:"red"}}>{error}</p>;
 

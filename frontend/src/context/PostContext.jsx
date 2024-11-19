@@ -1,27 +1,31 @@
-import React, {createContext, useContext, useState, useEffect} from "react";
-import {getPosts, createPost as createPostAPI } from "../services/api";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { getPosts, createPost as createPostAPI } from "../services/api";
 
 const PostContext = createContext();
 
-export const PostProvider = ({children}) => {
+export const PostProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const fetchPosts = await getPosts();
-        setPosts(fetchPosts);
-      } catch (error) {
-        console.log("Failed to fetch posts", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Fetch posts function
+  const fetchPosts = async () => {
+    try {
+      setLoading(true);
+      const fetchedPosts = await getPosts(); // Assuming getPosts fetches the data
+      setPosts(fetchedPosts);
+    } catch (error) {
+      console.log("Failed to fetch posts", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  // Initial fetch when component mounts
+  useEffect(() => {
     fetchPosts();
   }, []);
 
+  // Add a new post
   const addPost = async (newPost) => {
     try {
       const createdPost = await createPostAPI(newPost);
@@ -32,7 +36,7 @@ export const PostProvider = ({children}) => {
   };
 
   return (
-    <PostContext.Provider value={{posts, loading, addPost}}>
+    <PostContext.Provider value={{ posts, loading, fetchPosts, addPost }}>
       {children}
     </PostContext.Provider>
   );

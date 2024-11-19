@@ -39,7 +39,7 @@ export const loginUser = async (credentials) => {
 
 export const registerUser = async ({email, password}) => {
   try {
-    const response = await axiosInstance.post(`${API_URL}/auth/register`, {email, password});
+    const response = await axiosInstance.post(`${API_URL}/auth/register-user`, {email, password});
     return response.data;
   } catch (error) {
     handleError(error);
